@@ -1,0 +1,12 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.footer {
+  display: none;
+}
+
+.map-wrapper{
+    margin-left:25%;
+}
