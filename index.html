@@ -9,6 +9,24 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css" >
+        
+        <script type="text/javascript" src="d3.v2.min.js"></script>
+
+        <script type="text/javascript">
+
+        window.onload = function() {
+            d3.csv("data.csv", function(data) {
+                //Add data to the graph and call enter.
+                var dataEnter = d3.select("body").selectAll("p").data(data).enter();
+   
+                dataEnter.append("span").html(function(d) {
+                    return d["Site Type"] + "," + d["Media Type"] + "," + d["Data 1"] + "," + d["Data 2"]
+                        + "," + d["Data 3"] + "</br>";
+                    });
+                });
+        };
+
+</script>
 
     </head>
 
@@ -23,190 +41,247 @@
 
 
         <script>
+            
+            
+            function valueQuery(name){
+                return 3
+            }
+            
+            function getColor(name) {
+                var geoVal = valueQuery(name);
+                switch(geoVal) {
+                    case 1:
+                        return "one"
+                        break;
+                    case 2:
+                        return "two"
+                        break;
+                    case 3:
+                        return "three"
+                        break;
+                    case 4:
+                        return "four"
+                        break;
+                    case 5:
+                        return "five"
+                        break;
+                    case 6:
+                        return "six"
+                        break;
+                    case 7:
+                        return "seven"
+                        break;
+                    case 8:
+                        return "eight"
+                        break;
+                    case 9:
+                        return "nine"
+                        break;
+                    case 10:
+                        return "ten"
+                        break;
+                    default:
+                        return "defaultFill"
+                        break;   
+                }
+                
+                
+                
+                
+                
+            }
 
           var map = new Datamap({
             element: document.getElementById("map"),
             responsive: true,
             fills: {
-              defaultFill: "grey",
-              visumfrei: "#10c784",
-                temp: "black"
+                defaultFill: "grey",
+                one:"#fff5cc",
+                two:"#ffeb99",
+                three:"#ffdb4d",
+                four:"#e6b800",
+                five:"#ffa31a",
+                six:"#e65c00",
+                seven:"#ff3300",
+                eight:"#b32400",
+                nine:"#661400",
+                ten:"#330a00"
             },
             data: {
-                AFG: { fillKey: "visumfrei", value: 2002},
-                AGO: { fillKey: "visumfrei", value: 2002},
-                ALB: { fillKey: "visumfrei", value: 2002},
-                ARE: { fillKey: "visumfrei", value: 2002},
-                ARG: { fillKey: "visumfrei", value: 2002},
-                ARM: { fillKey: "visumfrei", value: 2002},
-                ATA: { fillKey: "visumfrei", value: 2002},
-                AUS: { fillKey: "visumfrei", value: 2002},
-                AUT: { fillKey: "visumfrei", value: 2002},
-                AZE: { fillKey: "visumfrei", value: 2002},
-                BDI: { fillKey: "visumfrei", value: 2002},
-                BEL: { fillKey: "visumfrei", value: 2002},
-                BEN: { fillKey: "visumfrei", value: 2002},
-                BFA: { fillKey: "visumfrei", value: 2002},
-                BGD: { fillKey: "visumfrei", value: 2002},
-                BGR: { fillKey: "visumfrei", value: 2002},
-                BHS: { fillKey: "visumfrei", value: 2002},
-                BIH: { fillKey: "visumfrei", value: 2002},
-                BLR: { fillKey: "visumfrei", value: 2002},
-                BLZ: { fillKey: "visumfrei", value: 2002},
-                BOL: { fillKey: "visumfrei", value: 2002},
-                BRA: { fillKey: "visumfrei", value: 2002},
-                BRN: { fillKey: "visumfrei", value: 2002},
-                BTN: { fillKey: "visumfrei", value: 2002},
-                BWA: { fillKey: "visumfrei", value: 2002},
-                CAF: { fillKey: "visumfrei", value: 2002},
-                CAN: { fillKey: "visumfrei", value: 2002},
-                CHE: { fillKey: "visumfrei", value: 2002},
-                CHL: { fillKey: "visumfrei", value: 2002},
-                CHN: { fillKey: "visumfrei", value: 2002},
-                CIV: { fillKey: "visumfrei", value: 2002},
-                CMR: { fillKey: "visumfrei", value: 2002},
-                COD: { fillKey: "visumfrei", value: 2002},
-                COG: { fillKey: "visumfrei", value: 2002},
-                COL: { fillKey: "visumfrei", value: 2002},
-                CRI: { fillKey: "visumfrei", value: 2002},
-                CUB: { fillKey: "visumfrei", value: 2002},
-                CYP: { fillKey: "visumfrei", value: 2002},
-                CZE: { fillKey: "visumfrei", value: 2002},
-                DEU: { fillKey: "visumfrei", value: 2002},
-                DJI: { fillKey: "visumfrei", value: 2002},
-                DNK: { fillKey: "visumfrei", value: 2002},
-                DOM: { fillKey: "visumfrei", value: 2002},
-                DZA: { fillKey: "visumfrei", value: 2002},
-                ECU: { fillKey: "visumfrei", value: 2002},
-                EGY: { fillKey: "visumfrei", value: 2002},
-                ERI: { fillKey: "visumfrei", value: 2002},
-                ESP: { fillKey: "visumfrei", value: 2002},
-                EST: { fillKey: "visumfrei", value: 2002},
-                ETH: { fillKey: "visumfrei", value: 2002},
-                FIN: { fillKey: "visumfrei", value: 2002},
-                FJI: { fillKey: "visumfrei", value: 2002},
-                FLK: { fillKey: "visumfrei", value: 2002},
-                FRA: { fillKey: "visumfrei", value: 2002},
-                GUF: { fillKey: "visumfrei", value: 2002},
-                GAB: { fillKey: "visumfrei", value: 2002},
-                GBR: { fillKey: "visumfrei", value: 2002},
-                GEO: { fillKey: "visumfrei", value: 2002},
-                GHA: { fillKey: "visumfrei", value: 2002},
-                GIN: { fillKey: "visumfrei", value: 2002},
-                GMB: { fillKey: "visumfrei", value: 2002},
-                GNB: { fillKey: "visumfrei", value: 2002},
-                GNQ: { fillKey: "visumfrei", value: 2002},
-                GRC: { fillKey: "visumfrei", value: 2002},
-                GRL: { fillKey: "visumfrei", value: 2002},
-                GTM: { fillKey: "visumfrei", value: 2002},
-                GUY: { fillKey: "visumfrei", value: 2002},
-                HND: { fillKey: "visumfrei", value: 2002},
-                HRV: { fillKey: "visumfrei", value: 2002},
-                HTI: { fillKey: "visumfrei", value: 2002},
-                HUN: { fillKey: "visumfrei", value: 2002},
-                IDN: { fillKey: "visumfrei", value: 2002},
-                IND: { fillKey: "visumfrei", value: 2002},
-                IRL: { fillKey: "visumfrei", value: 2002},
-                IRN: { fillKey: "visumfrei", value: 2002},
-                IRQ: { fillKey: "visumfrei", value: 2002},
-                ISL: { fillKey: "visumfrei", value: 2002},
-                ISR: { fillKey: "visumfrei", value: 2002},
-                ITA: { fillKey: "visumfrei", value: 2002},
-                JAM: { fillKey: "visumfrei", value: 2002},
-                JOR: { fillKey: "visumfrei", value: 2002},
-                JPN: { fillKey: "visumfrei", value: 2002},
-                KAZ: { fillKey: "visumfrei", value: 2002},
-                KEN: { fillKey: "visumfrei", value: 2002},
-                KGZ: { fillKey: "visumfrei", value: 2002},
-                KHM: { fillKey: "visumfrei", value: 2002},
-                KOR: { fillKey: "visumfrei", value: 2002},
-                KWT: { fillKey: "visumfrei", value: 2002},
-                LAO: { fillKey: "visumfrei", value: 2002},
-                LBN: { fillKey: "visumfrei", value: 2002},
-                LBR: { fillKey: "visumfrei", value: 2002},
-                LBY: { fillKey: "visumfrei", value: 2002},
-                LKA: { fillKey: "visumfrei", value: 2002},
-                LSO: { fillKey: "visumfrei", value: 2002},
-                LTU: { fillKey: "visumfrei", value: 2002},
-                LUX: { fillKey: "visumfrei", value: 2002},
-                LVA: { fillKey: "visumfrei", value: 2002},
-                MAR: { fillKey: "visumfrei", value: 2002},
-                MDA: { fillKey: "visumfrei", value: 2002},
-                MDG: { fillKey: "visumfrei", value: 2002},
-                MEX: { fillKey: "visumfrei", value: 2002},
-                MKD: { fillKey: "visumfrei", value: 2002},
-                MLI: { fillKey: "visumfrei", value: 2002},
-                MMR: { fillKey: "visumfrei", value: 2002},
-                MNE: { fillKey: "visumfrei", value: 2002},
-                MNG: { fillKey: "visumfrei", value: 2002},
-                MOZ: { fillKey: "visumfrei", value: 2002},
-                MRT: { fillKey: "visumfrei", value: 2002},
-                MWI: { fillKey: "visumfrei", value: 2002},
-                MYS: { fillKey: "visumfrei", value: 2002},
-                NAM: { fillKey: "visumfrei", value: 2002},
-                NCL: { fillKey: "visumfrei", value: 2002},
-                NER: { fillKey: "visumfrei", value: 2002},
-                NGA: { fillKey: "visumfrei", value: 2002},
-                NIC: { fillKey: "visumfrei", value: 2002},
-                NLD: { fillKey: "visumfrei", value: 2002},
-                NOR: { fillKey: "visumfrei", value: 2002},
-                NPL: { fillKey: "visumfrei", value: 2002},
-                NZL: { fillKey: "visumfrei", value: 2002},
-                OMN: { fillKey: "visumfrei", value: 2002},
-                PAK: { fillKey: "visumfrei", value: 2002},
-                PAN: { fillKey: "visumfrei", value: 2002},
-                PER: { fillKey: "visumfrei", value: 2002},
-                PHL: { fillKey: "visumfrei", value: 2002},
-                PNG: { fillKey: "visumfrei", value: 2002},
-                POL: { fillKey: "visumfrei", value: 2002},
-                PRI: { fillKey: "visumfrei", value: 2002},
-                PRK: { fillKey: "visumfrei", value: 2002},
-                PRT: { fillKey: "visumfrei", value: 2002},
-                PRY: { fillKey: "visumfrei", value: 2002},
-                QAT: { fillKey: "visumfrei", value: 2002},
-                ROU: { fillKey: "visumfrei", value: 2002},
-                RUS: { fillKey: "visumfrei", value: 2002},
-                RWA: { fillKey: "visumfrei", value: 2002},
-                ESH: { fillKey: "visumfrei", value: 2002},
-                SAU: { fillKey: "visumfrei", value: 2002},
-                SDN: { fillKey: "visumfrei", value: 2002},
-                SSD: { fillKey: "visumfrei", value: 2002},
-                SEN: { fillKey: "visumfrei", value: 2002},
-                SLB: { fillKey: "visumfrei", value: 2002},
-                SLE: { fillKey: "visumfrei", value: 2002},
-                SLV: { fillKey: "visumfrei", value: 2002},
-                SOM: { fillKey: "visumfrei", value: 2002},
-                SRB: { fillKey: "visumfrei", value: 2002},
-                SUR: { fillKey: "visumfrei", value: 2002},
-                SVK: { fillKey: "visumfrei", value: 2002},
-                SVN: { fillKey: "visumfrei", value: 2002},
-                SWE: { fillKey: "visumfrei", value: 2002},
-                SWZ: { fillKey: "visumfrei", value: 2002},
-                SYR: { fillKey: "visumfrei", value: 2002},
-                TCD: { fillKey: "visumfrei", value: 2002},
-                TGO: { fillKey: "visumfrei", value: 2002},
-                THA: { fillKey: "visumfrei", value: 2002},
-                TJK: { fillKey: "visumfrei", value: 2002},
-                TKM: { fillKey: "visumfrei", value: 2002},
-                TLS: { fillKey: "visumfrei", value: 2002},
-                TTO: { fillKey: "visumfrei", value: 2002},
-                TUN: { fillKey: "visumfrei", value: 2002},
-                TUR: { fillKey: "visumfrei", value: 2002},
-                TWN: { fillKey: "visumfrei", value: 2002},
-                TZA: { fillKey: "visumfrei", value: 2002},
-                UGA: { fillKey: "visumfrei", value: 2002},
-                UKR: { fillKey: "visumfrei", value: 2002},
-                URY: { fillKey: "visumfrei", value: 2002},
-                USA: { fillKey: "visumfrei", value: 2002},
-                UZB: { fillKey: "visumfrei", value: 2002},
-                VEN: { fillKey: "visumfrei", value: 2002},
-                VNM: { fillKey: "visumfrei", value: 2002},
-                VUT: { fillKey: "visumfrei", value: 2002},
-                PSE: { fillKey: "visumfrei", value: 2002},
-                YEM: { fillKey: "visumfrei", value: 2002},
-                ZAF: { fillKey: "visumfrei", value: 2002},
-                ZMB: { fillKey: "visumfrei", value: 2002},
-                ZWE: { fillKey: "visumfrei", value: 2002},
+                AFG: { fillKey: getColor("AFG"), value: valueQuery("AFG")},
+                AGO: { fillKey: getColor("AGO"), value: valueQuery("AGO")},
+                ALB: { fillKey: getColor("ALB"), value: valueQuery("ALB")},
+                ARE: { fillKey: getColor("ARE"), value: valueQuery("ARE")},
+                ARG: { fillKey: getColor("ARG"), value: valueQuery("ARG")},
+                ARM: { fillKey: getColor("ARM"), value: valueQuery("ARM")},
+                ATA: { fillKey: getColor("ATA"), value: valueQuery("ATA")},
+                AUS: { fillKey: getColor("AUS"), value: valueQuery("AUS")},
+                AUT: { fillKey: getColor("AUT"), value: valueQuery("USA")},
+                AZE: { fillKey: getColor("AZE"), value: valueQuery("USA")},
+                BDI: { fillKey: getColor("BDI"), value: valueQuery("USA")},
+                BEL: { fillKey: getColor("BDI"), value: valueQuery("USA")},
+                BEN: { fillKey: getColor("BDI"), value: valueQuery("USA")},
+                BFA: { fillKey: getColor("BDI"), value: valueQuery("USA")},
+                BGD: { fillKey: getColor("BDI"), value: valueQuery("USA")},
+                BGR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BHS: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BIH: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BLR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BLZ: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BOL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BRA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BRN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BTN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                BWA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CAF: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CAN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CHE: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CHL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CHN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CIV: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CMR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                COD: { fillKey: "visumfrei", value: valueQuery("USA")},
+                COG: { fillKey: "visumfrei", value: valueQuery("USA")},
+                COL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CRI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CUB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CYP: { fillKey: "visumfrei", value: valueQuery("USA")},
+                CZE: { fillKey: "visumfrei", value: valueQuery("USA")},
+                DEU: { fillKey: "visumfrei", value: valueQuery("USA")},
+                DJI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                DNK: { fillKey: "visumfrei", value: valueQuery("USA")},
+                DOM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                DZA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ECU: { fillKey: "visumfrei", value: valueQuery("USA")},
+                EGY: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ERI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ESP: { fillKey: "visumfrei", value: valueQuery("USA")},
+                EST: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ETH: { fillKey: "visumfrei", value: valueQuery("USA")},
+                FIN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                FJI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                FLK: { fillKey: "visumfrei", value: valueQuery("USA")},
+                FRA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GUF: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GAB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GBR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GEO: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GHA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GIN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GMB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GNB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GNQ: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GRC: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GRL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GTM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                GUY: { fillKey: "visumfrei", value: valueQuery("USA")},
+                HND: { fillKey: "visumfrei", value: valueQuery("USA")},
+                HRV: { fillKey: "visumfrei", value: valueQuery("USA")},
+                HTI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                HUN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                IDN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                IND: { fillKey: "visumfrei", value: valueQuery("USA")},
+                IRL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                IRN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                IRQ: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ISL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ISR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ITA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                JAM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                JOR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                JPN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                KAZ: { fillKey: "visumfrei", value: valueQuery("USA")},
+                KEN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                KGZ: { fillKey: "visumfrei", value: valueQuery("USA")},
+                KHM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                KOR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                KWT: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LAO: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LBN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LBR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LBY: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LKA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LSO: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LTU: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LUX: { fillKey: "visumfrei", value: valueQuery("USA")},
+                LVA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MAR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MDA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MDG: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MEX: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MKD: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MLI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MMR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MNE: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MNG: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MOZ: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MRT: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MWI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                MYS: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NAM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NCL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NER: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NGA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NIC: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NLD: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NOR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NPL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                NZL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                OMN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PAK: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PAN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PER: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PHL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PNG: { fillKey: "visumfrei", value: valueQuery("USA")},
+                POL: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PRI: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PRK: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PRT: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PRY: { fillKey: "visumfrei", value: valueQuery("USA")},
+                QAT: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ROU: { fillKey: "visumfrei", value: valueQuery("USA")},
+                RUS: { fillKey: "visumfrei", value: valueQuery("USA")},
+                RWA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ESH: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SAU: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SDN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SSD: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SEN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SLB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SLE: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SLV: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SOM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SRB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SUR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SVK: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SVN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SWE: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SWZ: { fillKey: "visumfrei", value: valueQuery("USA")},
+                SYR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TCD: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TGO: { fillKey: "visumfrei", value: valueQuery("USA")},
+                THA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TJK: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TKM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TLS: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TTO: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TUN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TUR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TWN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                TZA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                UGA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                UKR: { fillKey: "visumfrei", value: valueQuery("USA")},
+                URY: { fillKey: "visumfrei", value: valueQuery("USA")},
+                USA: { fillKey: "visumfrei", value: valueQuery("USA")},
+                UZB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                VEN: { fillKey: "visumfrei", value: valueQuery("USA")},
+                VNM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                VUT: { fillKey: "visumfrei", value: valueQuery("USA")},
+                PSE: { fillKey: "visumfrei", value: valueQuery("USA")},
+                YEM: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ZAF: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ZMB: { fillKey: "visumfrei", value: valueQuery("USA")},
+                ZWE: { fillKey: "visumfrei", value: valueQuery("USA")},
               "-99": { fillKey: "black", value: "unknown"}
             },
 
@@ -218,7 +293,6 @@
                             '</strong></div>'].join('');
                     }
             }
-
             });
 
         window.addEventListener("resize", function() {
