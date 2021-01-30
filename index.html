@@ -13,14 +13,8 @@
 
 
 
-var map = new Datamap({element: document.getElementById('container')});
-
-
-
-
-
 <script>
-    var map = new Datamap({element: document.getElementById('map')});
+    
   var map = new Datamap({
     element: document.getElementById("map"),
     responsive: true,
@@ -30,76 +24,22 @@ var map = new Datamap({element: document.getElementById('container')});
         temp: "black"
     },
     data: {
-      ALB: { fillKey: "visumfrei" },
-      ARE: { fillKey: "visumfrei" },
-      ARG: { fillKey: "visumfrei" },
-      AUS: { fillKey: "visumfrei" },
-      AUT: { fillKey: "visumfrei" },
-      BEL: { fillKey: "visumfrei" },
-      BGR: { fillKey: "visumfrei" },
-      BHS: { fillKey: "visumfrei" },
-      BIH: { fillKey: "visumfrei" },
-      BRA: { fillKey: "visumfrei" },
-      BRN: { fillKey: "visumfrei" },
-      CAN: { fillKey: "visumfrei" },
-      CHE: { fillKey: "visumfrei" },
-      CHL: { fillKey: "visumfrei" },
-      COL: { fillKey: "visumfrei" },
-      CRI: { fillKey: "visumfrei" },
-      CYP: { fillKey: "visumfrei" },
-      CZE: { fillKey: "visumfrei" },
-      DNK: { fillKey: "visumfrei" },
-      ESP: { fillKey: "visumfrei" },
-      EST: { fillKey: "visumfrei" },
-      FIN: { fillKey: "visumfrei" },
-      FRA: { fillKey: "visumfrei" },
-      GBR: { fillKey: "visumfrei" },
-      GEO: { fillKey: "visumfrei" },
-      GRC: { fillKey: "visumfrei" },
-      GTM: { fillKey: "visumfrei" },
-      HND: { fillKey: "visumfrei" },
-      HRV: { fillKey: "visumfrei" },
-      HUN: { fillKey: "visumfrei" },
-      IRL: { fillKey: "visumfrei" },
-      ISL: { fillKey: "visumfrei" },
-      ISR: { fillKey: "visumfrei" },
-      ITA: { fillKey: "visumfrei" },
-      JPN: { fillKey: "visumfrei" },
-      KOR: { fillKey: "visumfrei" },
-      LTU: { fillKey: "visumfrei" },
-      LUX: { fillKey: "visumfrei" },
-      LVA: { fillKey: "visumfrei" },
-      MEX: { fillKey: "visumfrei" },
-      MKD: { fillKey: "visumfrei" },
-      MNE: { fillKey: "visumfrei" },
-      MYS: { fillKey: "visumfrei" },
-      NIC: { fillKey: "visumfrei" },
-      NLD: { fillKey: "visumfrei" },
-      NOR: { fillKey: "visumfrei" },
-      NZL: { fillKey: "visumfrei" },
-      PAN: { fillKey: "visumfrei" },
-      PER: { fillKey: "visumfrei" },
-      POL: { fillKey: "visumfrei" },
-      PRT: { fillKey: "visumfrei" },
-      PRY: { fillKey: "visumfrei" },
-      ROU: { fillKey: "visumfrei" },
-      SLB: { fillKey: "visumfrei" },
-      SLV: { fillKey: "visumfrei" },
-      SRB: { fillKey: "visumfrei" },
-      SVK: { fillKey: "visumfrei" },
-      SVN: { fillKey: "visumfrei" },
-      SWE: { fillKey: "visumfrei" },
-      TLS: { fillKey: "visumfrei" },
-      TTO: { fillKey: "visumfrei" },
-      TWN: { fillKey: "visumfrei" },
-      UKR: { fillKey: "visumfrei" },
-      URY: { fillKey: "visumfrei" },
-      USA: { fillKey: "temp" },
-      VEN: { fillKey: "visumfrei" },
-      VUT: { fillKey: "visumfrei" },
-      DEU: { fillKey: "visumfrei" }
+      ALB: { fillKey: "visumfrei", numberOfThings: 2002},
+      USA: { fillKey: "temp", numberOfThings: 2002},
       
+      
+    },
+      
+    geographyConfig: {
+            popupTemplate: function(geo, data) {
+                return ['<div class="hoverinfo"><strong>',
+                        'Number of things in ' + geo.properties.name,
+                        ': ' + data.numberOfThings,
+                        '</strong></div>'].join('');
+            }
     }
+    
+      
   });
 
   window.addEventListener("resize", function() {
